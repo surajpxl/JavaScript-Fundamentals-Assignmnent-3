@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Create a Map to store user information
+let users = new Map();
+
+// Function to add a user
+function addUser(id, name, age, email) {
+  users.set(id, { name: name, age: age, email: email });
+}
+
+// Function to update a user
+function updateUser(id, newData) {
+  if (users.has(id)) {
+    users.set(id, { ...users.get(id), ...newData });
+  } else {
+    console.log('User not found');
+  }
+}
+
+// Function to delete a user
+function deleteUser(id) {
+  users.delete(id);
+}
+
+// Example usage
+addUser(1, 'John Doe', 25, 'john@example.com');
+addUser(2, 'Jane Smith', 30, 'jane@example.com');
+
+console.log(users);
+
+updateUser(1, { age: 26 });
+console.log(users);
+
+deleteUser(2);
+console.log(users);
+
+  </script>
+</body>
+</html>
